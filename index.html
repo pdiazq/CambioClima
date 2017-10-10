@@ -46,4 +46,22 @@ Se observan picos de temperatura a lo largo del siglo 20, como en 1959, 1984 y j
 </script>
 <script src="multiline.js" charset="utf-8"></script>
 </body>
+<body>
+<div class="chart-wrapper" id="chart-line1"></div>
+
+<script type="text/javascript">
+    d3.csv('multiline_data.csv', function(error, data) {
+    data.forEach(function (d) {
+       año = +d.año;
+        d.Lluvias = +d.Lluvias;
+    });
+    var chart = makeLineChart(data, 'año', {
+        'Lluvias Promedio': {column: 'Lluvias'},
+    }, {xAxis: 'Años', yAxis: 'Lluvias'});
+    chart.bind("#chart-line1");
+    chart.render();
+});
+</script>
+<script src="multiline.js" charset="utf-8"></script>
+</body>
 </html>
