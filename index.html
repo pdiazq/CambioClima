@@ -47,5 +47,19 @@ Se observan picos de temperatura a lo largo del siglo 20, como en 1959, 1984 y j
 });
 </script>
 <script src="multiline.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    d3.csv('multiline_data.csv', function(error, data) {
+    data.forEach(function (d) {
+       año = +d.año;
+        d.Temperatura = +d.TemperaturaA;
+    });
+    var chart = makeLineChart(data, 'año', {
+        'Temperatura Promedio': {column: 'Temperatura'},
+    }, {xAxis: 'Años', yAxis: 'Temperatura'});
+    chart.bind("#chart-line1");
+    chart.render();
+});
+</script>
+  
 </body>
 </html>
