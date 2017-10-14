@@ -56,8 +56,17 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
     chartObj.max = function (fn) {
         return d3.max(chartObj.data, fn);
     };
+    
+    // dc.mera
+    // con el fin de mejorar la visualizacion, se sugiere utilizar
+    // d3.min() y aplicarlo sobre el conjunto de datos de temperaturas.
+    // ... domain([d3.min(....), d3.max(chartObj.yFuncts.map(chartObj.max))])
     chartObj.yScale = d3.scale.linear().range([chartObj.height, 0]).domain([0, d3.max(chartObj.yFuncts.map(chartObj.max))]);
 
+    // dc.mera
+    // para años algunos formatos sugeridos son
+    // d3.format('%yyyy') o d3.format('%Y')
+    // por otra parte, parece que no se usa
     chartObj.formatAsYear = d3.format("");
 
 //Create axis
