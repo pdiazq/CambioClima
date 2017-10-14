@@ -36,7 +36,7 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
     chartObj.formatAsDecimal = d3.format(".2f");
     chartObj.formatAsCurrency = d3.format("$.2f");
     chartObj.formatAsFloat = function (d) {
-        if (d % 1 !== 0) {max
+        if (d % 1 !== 0) {
             return d3.format(".2f")(d);
         } else {
             return d3.format(".0f")(d);
