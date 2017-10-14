@@ -17,7 +17,7 @@ http://sdwebx.worldbank.org/climateportal/index.cfm?page=downscaled_data_downloa
      
 Se observan picos de temperatura a lo largo del siglo 20, como en 1959, 1984 y justo en el 2016, se está conformando otro pico. En este caso el máximo registrado. Hay que recordar que un solo grado centígrado afecta los ecosistemas.
   </FONT>
-
+<!-- dc.mera Incluir el contenido de la etiqueta <FONT> dentro de <body> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +25,15 @@ Se observan picos de temperatura a lo largo del siglo 20, como en 1959, 1984 y j
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="multiline.css">
+    <!-- dc.mera Hacer uso de la url con https, porque github-pages bloquea aquellos recursos que no son seguros -->
+    <!-- dc.mera Se recomienda ubicar las etiquetas script antes de cerrar la etiqueta <body> -->
     <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
     <!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>-->
 </head>
 <body>
 <div class="chart-wrapper" id="chart-line1"></div>
-
+<!-- dc.mera ubicar etiqueta script aqui: 
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
 <script type="text/javascript">
     d3.csv('multiline_data.csv', function(error, data) {
     data.forEach(function (d) {
@@ -46,6 +49,7 @@ Se observan picos de temperatura a lo largo del siglo 20, como en 1959, 1984 y j
 </script>
 <script src="multiline.js" charset="utf-8"></script>
 </body>
+<!-- etiqueta <body> repetida, el cuerpo de la pagina se carga dos veces -->
 <body>
 <div class="chart-wrapper" id="chart-line1"></div>
 
